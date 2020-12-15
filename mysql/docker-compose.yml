@@ -1,0 +1,26 @@
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+
+  phpmyadmin:
+      image: phpmyadmin
+      container_name: phpmyadmin
+      environment:
+        MYSQL_USER: "root"
+        MYSQL_PASSWORD: "123456"
+        MYSQL_ROOT_PASSWORD: "123456"
+        PMA_HOST: mysql
+      restart: always
+      ports:
+      - 8090:80
+      volumes:
+      - /sessions

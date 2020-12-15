@@ -1,0 +1,11 @@
+services:
+  redis:
+    image: redis:5
+    container_name: redis
+    ports:
+      - 6379:6379
+    command:
+      redis-server
+    deploy:
+      restart_policy:
+        condition: on-failure

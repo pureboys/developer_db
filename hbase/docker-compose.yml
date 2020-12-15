@@ -1,0 +1,13 @@
+services:
+  hbase:
+    container_name: hbase
+    image: oliverlin1989/hbase
+    ports:
+      - 8080:8080
+      - 8085:8085
+      - 7004:9090
+      - 9095:9095
+      - 16010:16010
+    deploy:
+      restart_policy:
+        condition: on-failure
