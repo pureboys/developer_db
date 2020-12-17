@@ -22,5 +22,3 @@ services:
       restart: always
       ports:
       - 8090:80
-      volumes:
-      - /sessions
