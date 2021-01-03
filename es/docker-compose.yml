@@ -1,26 +1,19 @@
 services:
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.9
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.8.1
     container_name: elasticsearch
-    command: elasticsearch -Enetwork.host=_local_,_site_ -Enetwork.publish_host=_local_
     ports:
       - "9200:9200"
       - "9300:9300"
     environment:
-      - cluster.name=docker-cluster
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
+      - discovery.type=single-node
     deploy:
       restart_policy:
         condition: on-failure
 
 
   kibana:
-    image: docker.elastic.co/kibana/kibana-oss:6.8.9
+    image: docker.elastic.co/kibana/kibana-oss:7.8.1
     container_name: kibana
     environment:
       SERVER_NAME: kibana-server
