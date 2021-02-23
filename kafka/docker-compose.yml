@@ -14,7 +14,7 @@ services:
     depends_on:
       - "zookeeper"
     environment:
-      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ADVERTISED_HOST_NAME: kafka  # 要填宿主机的ip
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     deploy:
       restart_policy:
