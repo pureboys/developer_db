@@ -20,6 +20,9 @@ services:
         MYSQL_PASSWORD: "123456"
         MYSQL_ROOT_PASSWORD: "123456"
         PMA_HOST: mysql
+        UPLOAD_LIMIT: 300M
       restart: always
       ports:
       - 8090:80
+      volumes:
+      - /sessions

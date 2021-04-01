@@ -1,0 +1,5 @@
+services:
+  ch-server:
+    image: yandex/clickhouse-server:21.1
+    ports:
+      - 9000:9000
